@@ -1,6 +1,6 @@
 #CalorieCounter
 
-itemap
+#Sitemap
 
 Upon initial start up: Profile Setup
 

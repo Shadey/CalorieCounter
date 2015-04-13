@@ -1,0 +1,117 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="softwaredevelopmentguild.me.caloriecounter.FirstRun">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/Age"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:hint="Age" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/Weight"
+        android:hint="Weight (lbs)"
+        android:layout_below="@+id/Age"
+        android:layout_centerHorizontal="true" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/InchesNumberPicker"
+        android:layout_below="@+id/Weight"
+        android:layout_alignRight="@+id/Weight"
+        android:layout_alignEnd="@+id/Weight"
+        android:clickable="true"
+        android:orientation="vertical" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/FeetNumberPicker"
+        android:layout_alignBottom="@+id/InchesNumberPicker"
+        android:layout_alignLeft="@+id/Weight"
+        android:layout_alignStart="@+id/Weight"
+        android:clickable="true"
+        android:orientation="vertical" />
+
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar"
+        android:layout_below="@+id/ExecriseBar"
+        android:layout_alignLeft="@+id/MaleButton"
+        android:layout_alignStart="@+id/MaleButton"
+        android:layout_alignRight="@+id/FemaleButton"
+        android:layout_alignEnd="@+id/FemaleButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Inches"
+        android:id="@+id/Inches"
+        android:layout_below="@+id/InchesNumberPicker"
+        android:layout_alignRight="@+id/InchesNumberPicker"
+        android:layout_alignEnd="@+id/InchesNumberPicker" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Feet"
+        android:id="@+id/Feet"
+        android:layout_below="@+id/FeetNumberPicker"
+        android:layout_alignRight="@+id/FeetNumberPicker"
+        android:layout_alignEnd="@+id/FeetNumberPicker" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Execrise"
+        android:id="@+id/ExecriseBar"
+        android:layout_below="@+id/MaleButton"
+        android:layout_toLeftOf="@+id/InchesNumberPicker"
+        android:layout_toStartOf="@+id/InchesNumberPicker" />
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male"
+        android:id="@+id/MaleButton"
+        android:layout_below="@+id/Feet"
+        android:layout_alignLeft="@+id/FeetNumberPicker"
+        android:layout_alignStart="@+id/FeetNumberPicker"
+        android:layout_marginTop="46dp" />
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Female"
+        android:id="@+id/FemaleButton"
+        android:layout_alignBottom="@+id/MaleButton"
+        android:layout_alignRight="@+id/Inches"
+        android:layout_alignEnd="@+id/Inches" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/SaveButton"
+        android:layout_alignRight="@+id/seekBar"
+        android:layout_alignEnd="@+id/seekBar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/seekBar"
+        android:layout_alignStart="@+id/seekBar" />
+</RelativeLayout>

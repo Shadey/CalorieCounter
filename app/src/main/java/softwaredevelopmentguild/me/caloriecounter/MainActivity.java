@@ -1,6 +1,9 @@
 package softwaredevelopmentguild.me.caloriecounter;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.preference.PreferenceGroup;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -17,6 +20,10 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.content.SharedPreferences;
+
+
+
 
 
 public class MainActivity extends ActionBarActivity
@@ -31,12 +38,16 @@ public class MainActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-
-    @Override
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor Editor;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        prefs = getSharedPreferences("Prefs",0);
+        if(!prefs.contains("first_run")){
+            Intent intent = new Intent(this,FirstRun.class);
+            startActivity(intent);
+        }
         setContentView(R.layout.activity_main);
-
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();

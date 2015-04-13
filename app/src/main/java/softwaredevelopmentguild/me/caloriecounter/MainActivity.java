@@ -25,7 +25,6 @@ import android.content.SharedPreferences;
 
 
 
-
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -38,11 +37,9 @@ public class MainActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-    private SharedPreferences prefs;
-    private SharedPreferences.Editor Editor;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        prefs = getSharedPreferences("Prefs",0);
+        SharedPreferences prefs = getSharedPreferences("Prefs",0);
         if(!prefs.contains("first_run")){
             Intent intent = new Intent(this,FirstRun.class);
             startActivity(intent);

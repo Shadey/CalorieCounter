@@ -142,11 +142,8 @@ public class FirstRun extends ActionBarActivity implements OnClickListener {
         editor.putLong("BMR",BMR);
         editor.putLong("Intake",intake);
         editor.commit();
-
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-
-
+        Intent Main = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(Main);
 
     }
     @Override

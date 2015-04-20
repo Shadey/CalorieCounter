@@ -12,7 +12,8 @@ public class FoodItem {
 
     }
 
-    public FoodItem(String itemName, int calories, String date) {
+    public FoodItem(int id, String itemName, int calories, String date) {
+        this.id = id;
         this.itemName = itemName;
         this.calories = calories;
         this.date = date;

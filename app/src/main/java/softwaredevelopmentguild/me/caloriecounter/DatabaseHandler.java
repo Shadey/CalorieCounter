@@ -59,6 +59,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    //Getting a FoodItem by ID:
     public FoodItem getFoodItem(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -72,6 +73,58 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 Integer.parseInt(cursor.getString(2)), cursor.getString(3));
 
         return item;
+    }
+
+    //Getting FoodItem list by Name:
+    public List<FoodItem> getFoodItemsByName(String itemName) {
+        List<FoodItem> items = new ArrayList<FoodItem>();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_EATEN + " WHERE " +
+                KEY_NAME + " = " + itemName;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                //Create empty item, and populate it with tale date from row:
+                FoodItem item = new FoodItem();
+                item.setID(Integer.parseInt(cursor.getString(0)));
+                item.setItemName(cursor.getString(1));
+                item.setCalories(Integer.parseInt(cursor.getString(2)));
+                item.setDate(cursor.getString(3));
+                //Add item to list:
+                items.add(item);
+            } while (cursor.moveToNext());
+        }
+
+        return items;
+    }
+
+    //Getting FoodItem list by Date:
+    public List<FoodItem> getFoodItemsByDate(String date) {
+        List<FoodItem> items = new ArrayList<FoodItem>();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_EATEN + " WHERE " +
+                KEY_DATE + " = " + date;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                //Create empty item, and populate it with tale date from row:
+                FoodItem item = new FoodItem();
+                item.setID(Integer.parseInt(cursor.getString(0)));
+                item.setItemName(cursor.getString(1));
+                item.setCalories(Integer.parseInt(cursor.getString(2)));
+                item.setDate(cursor.getString(3));
+                //Add item to list:
+                items.add(item);
+            } while (cursor.moveToNext());
+        }
+
+        return items;
     }
 
     public List<FoodItem> getAllFoodItems() {

@@ -28,6 +28,11 @@ import android.content.SharedPreferences;
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
+    //USE THIS WHEN YOU WANT TO ACCESS THE DATABASE FUNCTIONS! vvvvvv
+    public static DatabaseHandler dbHandler;
+    //^^^^^ I made this a public static object so that it can be accessed anywhere.
+    //Usage example: "MainActivity.dbHandler.addItem(item);" (from anywhere in the program)
+
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -39,6 +44,9 @@ public class MainActivity extends ActionBarActivity
     private CharSequence mTitle;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        dbHandler = new DatabaseHandler(getApplicationContext());
+
         SharedPreferences prefs = getSharedPreferences("Prefs",0);
         if(!prefs.contains("first_run")){
             Intent intent = new Intent(this,FirstRun.class);
@@ -67,12 +75,15 @@ public class MainActivity extends ActionBarActivity
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.title_section1);
+                mTitle = getString(R.string.title_section_home);
                 break;
             case 2:
-                mTitle = getString(R.string.title_section2);
+                mTitle = getString(R.string.title_section1);
                 break;
             case 3:
+                mTitle = getString(R.string.title_section2);
+                break;
+            case 4:
                 mTitle = getString(R.string.title_section3);
                 break;
         }

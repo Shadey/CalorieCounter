@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Calorie Counter</string>
 
+    <string name="title_section_home">Home</string>
     <string name="title_section1">History</string>
     <string name="title_section2">Graph</string>
     <string name="title_section3">Food Lookup</string>

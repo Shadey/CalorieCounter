@@ -8,8 +8,17 @@ public class FoodItem {
     String itemName, date;
     int calories;
 
+    //Default constructor for if you don't plan on setting values in constructor.
     public FoodItem() {
 
+    }
+
+    //Use this constructor if you are creating a new item that has is not yet in the database.
+    public FoodItem(String itemName, int calories, String date) {
+        this.id = id;
+        this.itemName = itemName;
+        this.calories = calories;
+        this.date = date;
     }
 
     public FoodItem(int id, String itemName, int calories, String date) {

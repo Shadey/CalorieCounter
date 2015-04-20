@@ -32,7 +32,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_EATEN + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_CALORIES + " TEXT," + KEY_DATE + " TEXT," + ")";
+                + KEY_CALORIES + " TEXT," + KEY_DATE + " TEXT" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
 

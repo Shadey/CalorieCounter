@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,7 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.content.SharedPreferences;
 
-
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity
@@ -45,7 +46,24 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        dbHandler = new DatabaseHandler(getApplicationContext());
+        dbHandler = new DatabaseHandler(this);
+
+        /* EXAMPLE OF DATABASE USAGE:
+
+        //Adding three items to the database:
+        dbHandler.addItem(new FoodItem("TestItem", 600, "4/20/2015"));
+        dbHandler.addItem(new FoodItem("Again", 700, "4/20/2015"));
+        dbHandler.addItem(new FoodItem("Bacon", 9001, "4/20/2015"));
+
+        //Getting a list of items using the date:
+        List<FoodItem> items = dbHandler.getFoodItemsByDate("4/20/2015");
+
+        //Cycling through the list of items to write the contents to the log: (for debug)
+        for(FoodItem item : items) {
+            String log = item.getID() + " " + item.getItemName() + " " + item.getItemName() + " " + item.getDate();
+            Log.d("Food Item: ", log);
+        }
+        */
 
         SharedPreferences prefs = getSharedPreferences("Prefs",0);
         if(!prefs.contains("first_run")){
